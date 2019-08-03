@@ -1,11 +1,19 @@
 package com.catnip.pixabayimage.model
 
 
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+@Entity
 @JsonClass(generateAdapter = true)
 data class Hit(
+    @PrimaryKey(autoGenerate = false)
+    @Json(name = "id")
+    var id: Int,
+
     @Json(name = "comments")
     var comments: Int,
     @Json(name = "downloads")
@@ -14,8 +22,6 @@ data class Hit(
     var duration: Int,
     @Json(name = "favorites")
     var favorites: Int,
-    @Json(name = "id")
-    var id: Int,
     @Json(name = "likes")
     var likes: Int,
     @Json(name = "pageURL")
@@ -32,6 +38,7 @@ data class Hit(
     var userId: Int,
     @Json(name = "userImageURL")
     var userImageURL: String,
+    @Embedded
     @Json(name = "videos")
     var videos: Videos,
     @Json(name = "views")

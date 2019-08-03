@@ -1,17 +1,22 @@
 package com.catnip.pixabayimage.model
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+@Entity
 @JsonClass(generateAdapter = true)
 data class Videos(
+    @PrimaryKey(autoGenerate = true)
+    var id: Int,
     @Json(name = "large")
-    var large: Large,
+    var large: Size,
     @Json(name = "medium")
-    var medium: Medium,
+    var medium: Size,
     @Json(name = "small")
-    var small: Small,
+    var small: Size,
     @Json(name = "tiny")
-    var tiny: Tiny
+    var tiny: Size
 )
