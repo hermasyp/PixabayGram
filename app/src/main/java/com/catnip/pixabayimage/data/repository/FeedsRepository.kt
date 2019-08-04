@@ -7,6 +7,7 @@ import com.catnip.pixabayimage.data.network.BaseRequest
 import com.catnip.pixabayimage.data.network.RetrofitApi
 import com.catnip.pixabayimage.model.Hit
 import com.catnip.pixabayimage.utils.Coroutines
+import com.catnip.pixabayimage.utils.NoInternetException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -32,11 +33,15 @@ class FeedsRepository(private val api: RetrofitApi, private val db: PixabayDatab
     }
 
     private suspend fun fetchQuotes() {
-        val response = request { api.getFeeds(order = "popular",page = 1) }
-        feeds.postValue(response.hits)
+        try {
+            val response = request { api.getFeeds(order = "popular",page = 1) }
+            feeds.postValue(response.hits)
+        }catch (e: NoInternetException){
+            //handle something if no connection
+        }
     }
 
-    fun saveFeeds(feeds: List<Hit>) {
+    private fun saveFeeds(feeds: List<Hit>) {
         Coroutines.io {
             db.getFeedDao().saveAllFeeds(feeds)
         }

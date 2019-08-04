@@ -18,14 +18,20 @@ android {
     }
     buildTypes {
         debug{
-            buildConfigField("String","BASE_URL","\"https://pixabay.com/api/\"");
+            buildConfigField("String","BASE_URL","\"https://pixabay.com/\"")
         }
         release {
-            buildConfigField("String","BASE_URL","\"https://pixabay.com/api/\"");
+            buildConfigField("String","BASE_URL","\"https://pixabay.com/\"")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 
@@ -68,4 +74,9 @@ dependencies {
     implementation "androidx.room:room-runtime:2.2.0-alpha01"
     implementation "androidx.room:room-ktx:2.2.0-alpha01"
     kapt "androidx.room:room-compiler:2.2.0-alpha01"
+
+    //koin dependency Injection
+    implementation 'org.koin:koin-android:2.0.1'
+
+    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
 }

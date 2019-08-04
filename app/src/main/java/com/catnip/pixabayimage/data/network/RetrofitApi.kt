@@ -4,6 +4,7 @@ import com.catnip.pixabayimage.BuildConfig
 import com.catnip.pixabayimage.model.Feeds
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -17,7 +18,7 @@ Github : https://github.com/hermasyp
 
 interface RetrofitApi {
 
-    @GET("/videos")
+    @GET("api/videos")
     suspend fun getFeeds(
         @Query("q") query: String? = null,
         @Query("order") order:String? = null,
@@ -36,10 +37,13 @@ interface RetrofitApi {
                     .build()
                 chain.proceed(newRequest)
             }
+            val loggingInterceptor = HttpLoggingInterceptor()
+            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
             val okkHttpclient = OkHttpClient.Builder()
                 .addInterceptor(networkConnectionInterceptor)
                 .addInterceptor(authInterceptor)
+                .addInterceptor(loggingInterceptor)
                 .build()
 
             return Retrofit.Builder()

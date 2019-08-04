@@ -13,7 +13,6 @@ data class Hit(
     @PrimaryKey(autoGenerate = false)
     @Json(name = "id")
     var id: Int,
-
     @Json(name = "comments")
     var comments: Int,
     @Json(name = "downloads")
@@ -38,7 +37,7 @@ data class Hit(
     var userId: Int,
     @Json(name = "userImageURL")
     var userImageURL: String,
-    @Embedded
+    @Embedded(prefix = "videos_list")
     @Json(name = "videos")
     var videos: Videos,
     @Json(name = "views")

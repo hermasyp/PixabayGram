@@ -9,8 +9,11 @@ import com.squareup.moshi.JsonClass
 @Entity
 @JsonClass(generateAdapter = true)
 data class Size(
+
+
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    var id: Int? ,
+
     @Json(name = "height")
     var height: Int,
     @Json(name = "size")
