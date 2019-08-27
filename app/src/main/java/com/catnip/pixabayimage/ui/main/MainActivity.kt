@@ -1,4 +1,4 @@
-package com.catnip.pixabayimage.ui.mian
+package com.catnip.pixabayimage.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

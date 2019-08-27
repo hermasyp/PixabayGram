@@ -4,7 +4,7 @@ import com.catnip.pixabayimage.data.db.PixabayDatabase
 import com.catnip.pixabayimage.data.network.NetworkConnectionInterceptor
 import com.catnip.pixabayimage.data.network.RetrofitApi
 import com.catnip.pixabayimage.data.repository.FeedsRepository
-import com.catnip.pixabayimage.ui.mian.MainViewModel
+import com.catnip.pixabayimage.ui.main.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

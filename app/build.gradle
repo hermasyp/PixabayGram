@@ -67,16 +67,16 @@ dependencies {
     //exoplayer
     implementation "com.google.android.exoplayer:exoplayer:$exoplayerVersion"
     implementation "com.google.android.exoplayer:exoplayer-core:$exoplayerVersion"
+    
     implementation "com.google.android.exoplayer:exoplayer-dash:$exoplayerVersion"
     implementation "com.google.android.exoplayer:exoplayer-ui:$exoplayerVersion"
 
     //Android Room
-    implementation "androidx.room:room-runtime:2.2.0-alpha01"
-    implementation "androidx.room:room-ktx:2.2.0-alpha01"
-    kapt "androidx.room:room-compiler:2.2.0-alpha01"
+    implementation "androidx.room:room-runtime:2.2.0-beta01"
+    implementation "androidx.room:room-ktx:2.2.0-beta01"
+    kapt "androidx.room:room-compiler:2.2.0-beta01"
 
     //koin dependency Injection
     implementation 'org.koin:koin-android:2.0.1'
-
     implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
 }

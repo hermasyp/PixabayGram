@@ -1,4 +1,4 @@
-package com.catnip.pixabayimage.ui.mian
+package com.catnip.pixabayimage.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.catnip.pixabayimage.data.repository.FeedsRepository
